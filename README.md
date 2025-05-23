@@ -7,6 +7,88 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+# Manajemen Data Fakultas
+
+Aplikasi **Manajemen Data Fakultas** adalah sistem berbasis web untuk mengelola data akademik di lingkungan fakultas, dibangun menggunakan Laravel 12 dan Filament 3.
+
+## Fitur Utama
+
+- **Manajemen Data Mahasiswa**: CRUD data mahasiswa, termasuk NIM, email, program studi, angkatan, dll.
+- **Manajemen Data Dosen**: CRUD data dosen, termasuk NIP, email, program studi, status, dll.
+- **Manajemen Ruang Kelas**: Data ruang kelas, kapasitas, lokasi, fasilitas, dan kode ruang.
+- **Jadwal Kuliah**: Penjadwalan mata kuliah, dosen, ruang kelas, hari, jam, dan semester.
+- **Program Studi**: Data program studi yang tersedia.
+- **Laporan Penelitian Dosen**: Pencatatan laporan penelitian dosen.
+- **Pengajuan Administrasi**: Pengajuan administrasi oleh mahasiswa.
+- **Dashboard Statistik**: Statistik jumlah mahasiswa, dosen, ruang kelas, jadwal, dan visualisasi data.
+
+## Teknologi
+
+- Laravel 12.x
+- Filament Admin Panel 3.x
+- MySQL/MariaDB (default), mendukung SQLite
+- Livewire, Vite, TailwindCSS
+
+## Instalasi
+
+1. **Clone repository**
+    ```bash
+    git clone <repo-url>
+    cd manajemen-data-fakultas
+    ```
+
+2. **Install dependencies**
+    ```bash
+    composer install
+    npm install
+    ```
+
+3. **Copy file environment**
+    ```bash
+    cp .env.example .env
+    ```
+
+4. **Atur konfigurasi database** di file `.env` sesuai kebutuhan.
+
+5. **Generate key**
+    ```bash
+    php artisan key:generate
+    ```
+
+6. **Jalankan migrasi database**
+    ```bash
+    php artisan migrate
+    ```
+
+7. **Jalankan server**
+    ```bash
+    php artisan serve
+    npm run dev
+    ```
+
+## Penggunaan
+
+- Akses aplikasi di `http://localhost:8000` (atau sesuai port).
+- Login/akses dashboard admin Filament di `/admin` (atur user/admin sesuai kebutuhan).
+- Kelola data mahasiswa, dosen, ruang kelas, jadwal, dsb melalui panel admin.
+
+## Struktur Direktori Penting
+
+- `app/Models/` — Model Eloquent untuk setiap entitas.
+- `app/Filament/Resources/` — Resource & halaman admin Filament.
+- `database/migrations/` — Migrasi database.
+- `resources/views/` — Blade templates.
+- `resources/js/` — Asset JS (Vite).
+- `public/` — Asset publik.
+
+## Kontribusi
+
+Pull request dan issue sangat terbuka untuk pengembangan lebih lanjut.
+
+## Lisensi
+
+MIT License.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
