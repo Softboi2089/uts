@@ -66,6 +66,54 @@ Aplikasi **Manajemen Data Fakultas** adalah sistem berbasis web untuk mengelola 
     npm run dev
     ```
 
+## Deployment
+
+### Shared Hosting
+
+1. **Persiapan file**
+    ```bash
+    composer install --optimize-autoloader --no-dev
+    npm install
+    npm run build
+    ```
+
+2. **Konfigurasi server**
+    - Pastikan document root mengarah ke direktori `public/`
+    - Aktifkan modul rewrite untuk .htaccess
+
+3. **Penyesuaian file .env**
+    - Atur `APP_ENV=production`
+    - Atur `APP_DEBUG=false`
+    - Konfigurasi database production
+
+### VPS/Dedicated Server
+
+1. **Instalasi dependensi server**
+    ```bash
+    sudo apt update
+    sudo apt install nginx mysql-server php8.1-fpm php8.1-mysql php8.1-mbstring php8.1-xml php8.1-bcmath php8.1-curl
+    ```
+
+2. **Konfigurasi Nginx**
+    - Buat virtual host dengan root ke direktori `public/`
+    - Aktifkan PHP-FPM
+
+3. **Deployment**
+    ```bash
+    git pull origin main
+    composer install --optimize-autoloader --no-dev
+    npm install
+    npm run build
+    php artisan config:cache
+    php artisan route:cache
+    php artisan view:cache
+    ```
+
+4. **Konfigurasi Cron untuk Scheduler**
+    ```bash
+    * * * * * cd /path-to-project && php artisan schedule:run >> /dev/null 2>&1
+    ```
+
 ## Penggunaan
 
 - Akses aplikasi di `http://localhost:8000` (atau sesuai port).
